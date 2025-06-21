@@ -4,3 +4,16 @@
     --color-beige: #F5F5DC;
     
 }
+.leaf {
+    position: absolute;
+    width: 24px;
+    height: 48px;
+    background: linear-gradient(135deg, #2e7d32 0%, #81c784 100%);
+    border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
+    transform-origin: bottom center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
