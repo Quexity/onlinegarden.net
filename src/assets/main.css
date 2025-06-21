@@ -1,17 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-    --color-beige: #F5F5DC;
-    
+  --color-beige: #F5F5DC;
+  --color-dirt-light: #b88c5a;
+  --color-dirt-dark: #7b5232;
 }
 .leaf {
-    position: absolute;
-    width: 24px;
-    height: 48px;
-    background: linear-gradient(135deg, #2e7d32 0%, #81c784 100%);
-    border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
-    transform-origin: bottom center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  background: linear-gradient(180deg, rgba(37, 99, 1, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+  clip-path: polygon(50% 0%, 90% 20%, 100% 50%, 90% 80%, 50% 100%, 10% 80%, 0% 50%, 10% 20%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+.left {
+  transform: rotate(-30deg);
+  transform-origin: center;
+}
+.right {
+  transform: rotate(30deg);
+  transform-origin: center;
 }
 html, body {
   margin: 0;
