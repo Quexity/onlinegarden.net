@@ -4,6 +4,14 @@
   --color-beige: #F5F5DC;
   --color-dirt-light: #b88c5a;
   --color-dirt-dark: #7b5232;
+  --color-sky-light: #e0f7fa;
+  --color-sky: #b3e5fc;
+  --color-sky-dark: #6ec6f3;
+  --color-grass-light: #b6e388;
+  --color-grass: #4caf50;
+  --color-grass-dark: #357a38;
+  --color-sunset: #ffb347;
+  --color-flower: #ff69b4;
 }
 .leaf {
   background: linear-gradient(180deg, rgba(37, 99, 1, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
@@ -22,4 +30,41 @@
 html, body {
   margin: 0;
   padding: 0;
+}
+
+.left-frame-bg {
+  background: linear-gradient(to top, var(--color-grass) 0 20%, var(--color-sky) 20% 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.85;
+  z-index: 1;
+}
+
+.cloud-shape-1 {
+  width: 7vw;
+  height: 3vw;
+  background: #fff;
+  border-radius: 50% 50% 40% 60% / 60% 60% 40% 40%;
+  box-shadow: 2vw 0.5vw 0 0 #fff, 4vw 0vw 0 0 #fff;
+}
+
+.cloud-shape-2 {
+  width: 5vw;
+  height: 2.5vw;
+  background: #fff;
+  border-radius: 60% 40% 60% 40% / 60% 60% 40% 40%;
+  box-shadow: 1.5vw 0.5vw 0 0 #fff, 3vw 0vw 0 0 #fff;
+}
+
+.cloud-shape-3 {
+  width: 8vw;
+  height: 3.5vw;
+  background: #fff;
+  border-radius: 50% 60% 50% 60% / 60% 60% 40% 40%;
+  box-shadow: 2vw 0.5vw 0 0 #fff, 5vw 0vw 0 0 #fff;
 }

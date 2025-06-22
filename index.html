@@ -3,12 +3,44 @@
   <head>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=900, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Vite App</title>
     <style>
       html, body, #app {
-        min-width: 900px;
-        overflow-x: auto;
+        min-width: unset;
+        min-height: unset;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .aspect-16-9 {
+        aspect-ratio: 16 / 9;
+        width: 100vw;
+        max-width: 100vw;
+        height: 100vh;
+        max-height: 100vh;
+        background: inherit;
+        overflow: auto;
+        position: relative;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+      }
+      @media (max-width: 900px) {
+        .aspect-16-9 {
+          width: 100vw;
+          height: 56.25vw; /* 16:9 ratio */
+          max-height: 100vh;
+          max-width: 100vw;
+          margin: auto;
+          top: 0; left: 0; right: 0; bottom: 0;
+          position: absolute;
+        }
       }
     </style>
   </head>
