@@ -21,7 +21,7 @@ To add more custom shapes, gradients, or colors, update main.css and reference t
 <template>
   <div class="aspect-16-9 flex flex-row">
     <!-- Left frame with sky/grass background and animated clouds -->
-    <div class="flex-1 left-frame-bg relative overflow-hidden">
+    <div class="flex-1 relative overflow-hidden">
       <div
         v-for="cloud in clouds"
         :key="cloud.id"
@@ -33,7 +33,9 @@ To add more custom shapes, gradients, or colors, update main.css and reference t
           transform: `translateX(${cloud.x}vw)`
         }"
       ></div>
-    </div>
+        </div>
+            <div class="pot w-20 h-20"></div>
+      <div class="bg-grass mt-auto w-auto h-20"></div>
     <!-- Right section (always visible as a sliver on the right, height matches screen) -->
     <div
       class="fixed top-0 right-0 bg-dirt-light border-l-8 border-dirt-dark flex flex-col items-start justify-start p-8 z-10 transition-all duration-300 ease-in-out"
@@ -50,17 +52,23 @@ To add more custom shapes, gradients, or colors, update main.css and reference t
         <span v-if="!menuOpen">&#x25C0;</span>
         <span v-else>&#x25B6;</span>
       </button>
-      <div v-show="menuOpen" class="flex flex-row items-start w-full">
+      <div v-show="menuOpen" class="flex flex-col items-start w-full gap-2">
         <!-- Leaves -->
-        <div class="flex items-center h-15 w-30 bg-white rounded-lg">
+        <div class="flex items-center h-15 w-30 bg-white rounded-lg mb-2">
           <div class="w-6 h-12 leaf ml-4 my-auto left"></div>
           <div class="h-13 w-14 ml-5 my-auto rounded-lg bg-green-200 flex flex-col items-center justify-center">
             <span class="font-bold text-2xl">{{ leaves }}</span>
           </div>
         </div>
-
+        <!-- Gems -->
+        <div class="flex items-center h-15 w-30 bg-white rounded-lg">
+          <div class="w-8 h-8 gem ml-4 my-auto left"></div>
+          <div class="h-13 w-14 ml-3 my-auto rounded-lg bg-blue-200 flex flex-col items-center justify-center">
+            <span class="font-bold text-2xl">{{ gems }}</span>
+          </div>
+        </div>
         <!-- temporary for js test -->
-        <div class="flex flex-row items-center ml-4">
+        <div class="flex flex-row items-center mt-2">
           <button class="ml-2 bg-white text-black px-4 py-2 rounded shadow" @click="addLeaf">+</button>
           <button class="ml-2 bg-white text-black px-4 py-2 rounded shadow" @click="removeLeaf">-</button>
           <button class="ml-2 bg-white text-black px-4 py-2 rounded shadow" @click="resetLeaves">Reset</button>
@@ -72,7 +80,7 @@ To add more custom shapes, gradients, or colors, update main.css and reference t
 
 
 <!--
-shoulda added notes for the js but most of it is self explanatory i guess
+shoulda added more notes for the js but most of it is self explanatory i guess
 -->
 
 <script setup>
@@ -80,6 +88,7 @@ import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 
 // --- State Variables ---
 const leaves = ref(0);
+const gems = ref(0);
 const menuOpen = ref(false);
 const menuPeek = 32; // px, always visible sliver
 const cloudShapes = ["cloud-shape-1", "cloud-shape-2", "cloud-shape-3"];
@@ -88,6 +97,11 @@ const clouds = ref([]);
 let rafId;
 let spawnTimeoutId;
 let thickness = ref(0.5); // Controls cloud spawn rate
+
+
+
+
+
 
 // --- UI Functions ---
 const menuStyle = computed(() => {
@@ -99,6 +113,16 @@ function toggleMenu() { menuOpen.value = !menuOpen.value; }
 function addLeaf() { leaves.value++; }
 function removeLeaf() { if (leaves.value > 0) leaves.value--; }
 function resetLeaves() { leaves.value = 0; }
+
+
+
+
+
+
+
+
+
+
 
 // --- Cloud Logic ---
 function randomCloud(offset = 0, topOverride = null) {
@@ -142,28 +166,3 @@ onBeforeUnmount(() => {
   clearTimeout(spawnTimeoutId);
 });
 </script>
-
-<style>
-/* Add your cloud animations here */
-.cloud {
-  position: absolute;
-  width: 15vw;
-  height: 8vw;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.9;
-  pointer-events: none;
-}
-
-.cloud-shape-1 {
-  /* Specific styles for cloud shape 1 */
-}
-
-.cloud-shape-2 {
-  /* Specific styles for cloud shape 2 */
-}
-
-.cloud-shape-3 {
-  /* Specific styles for cloud shape 3 */
-}
-</style>

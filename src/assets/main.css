@@ -19,6 +19,21 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   flex-shrink: 0;
 }
+
+.gem {
+  background: linear-gradient(180deg, rgba(250, 187, 228, 1) 0%, rgba(179, 59, 165, 1) 37%, rgba(0, 191, 255, 1) 100%);
+  clip-path: polygon(50% 0%, 90% 25%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 25%);
+  box-shadow: 0 2px 8px rgba(99, 179, 237, 0.3);
+  flex-shrink: 0;
+}
+
+.pot {
+  background: #523613;
+  clip-path: polygon(05% 54%, 5% 45%, 95% 45%, 95% 54%, 90% 54%, 75% 100%, 25% 100%, 10% 54%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
 .left {
   transform: rotate(-30deg);
   transform-origin: center;
@@ -30,12 +45,6 @@
 html, body {
   margin: 0;
   padding: 0;
-}
-
-.left-frame-bg {
-  background: linear-gradient(to top, var(--color-grass) 0 20%, var(--color-sky) 20% 100%);
-  position: relative;
-  overflow: hidden;
 }
 
 .cloud {
